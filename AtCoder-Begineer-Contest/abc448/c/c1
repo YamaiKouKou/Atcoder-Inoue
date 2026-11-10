@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0;i < (int)(n); ++i)
+using ll = long long;
+
+vector<int> A;
+int N;
+
+void solve(int k){
+    ll min = 1e10;
+    vector<bool> B(N,true);
+    rep(i,k) {
+        int nu;
+        cin >> nu;
+        nu--;
+        B[nu] = false;
+    }
+    rep(j,N){
+        if(B[j] == true){
+            if(A[j] < min) min = A[j];        
+        }
+    }
+    cout << min << endl;
+}
+
+int main() {
+    int Q;
+    cin >> N >> Q;
+    A.resize(N);
+    rep(i,N) cin >> A[i];
+    rep(j,Q){
+        int K;
+        cin >> K;
+        solve(K);
+    }
+
+}
+
